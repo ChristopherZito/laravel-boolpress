@@ -6,3 +6,13 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+#app{
+    width: 70%;
+    margin: auto;
+    padding: 30px 0;
+    background-color: red;
+    text-align: center;
+    color: white;
+}
