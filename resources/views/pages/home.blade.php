@@ -20,12 +20,10 @@
             <input type="password" name="password" ><br>
             <label for="password_confirmation">Confirm Password:</label><br>
             <input type="password" name="password_confirmation" ><br>
-            <input type="submit" value="Register">
+            <input class="btn btn-primary m-4" type="submit" value="Register">
         </form>
 
-        <br>
-        <hr class="bg-white">
-        <br>
+        <br><hr class="bg-white"><br>        
 
         <h1> Login: </h1>
         <form action="{{route('login')}}" method="POST">
@@ -36,7 +34,7 @@
             <input type="email" name="email" ><br>
             <label for="password">Password:</label><br>
             <input type="password" name="password" ><br>
-            <input type="submit" value="Login">
+            <input class="btn btn-primary m-4" type="submit" value="Login">
         </form>
     @endguest
 @endsection
