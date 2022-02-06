@@ -10,7 +10,7 @@ class Post extends Model
 
         'owner',
         'post_name',
-        'date-and-time_of_pubblication',
+        'time_of_pubblication',
         'description',
         'views',
         'like',

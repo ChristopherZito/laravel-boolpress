@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
 
             $table -> string('owner') ;
             $table -> string('post_name') -> nullable();
-            $table -> dateTime('date-and-time_of_pubblication');
+            $table -> dateTime('time_of_pubblication');
             $table -> text('description') -> nullable();
             $table -> integer('views') -> default(0) ->unsigned();
             $table -> integer('like') -> default(0) ->unsigned();
