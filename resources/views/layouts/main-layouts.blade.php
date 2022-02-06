@@ -12,8 +12,8 @@
     <title>Home</title>
 </head>
 <body>
-    <div id="app">
-        @include('components.header')
+    @include('components.header')
+    <div id="app" class="text-center text-light bg-dark">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -24,9 +24,7 @@
             </div>
         @endif
         @yield('content')
-
-        @include('components.footer')
-
     </div>
+    @include('components.footer')
 </body>
 </html>

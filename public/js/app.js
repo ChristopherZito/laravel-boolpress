@@ -1975,6 +1975,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37638,31 +37647,33 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
-        _c(
-          "div",
-          { staticClass: "card text-dark" },
-          _vm._l(_vm.posts, function (post, i) {
-            return _c("div", { key: i }, [
-              _vm._v(
-                "\n                        Ninname: " + _vm._s(post.owner) + " "
-              ),
-              _c("br"),
-              _vm._v(" "),
-              post.post_name != _vm.NULL
-                ? _c("span", [
-                    _vm._v(
-                      "\n                            PostName: " +
-                        _vm._s(post.post_name) +
-                        " "
-                    ),
-                    _c("br"),
-                  ])
-                : _c("span"),
-              _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "card text-dark p-5" },
+      _vm._l(_vm.posts, function (post, i) {
+        return _c("div", { key: i }, [
+          _c("div", { staticClass: "d-flex justify-content-around" }, [
+            _vm._v(
+              "\n                    Nickame: " + _vm._s(post.owner) + " "
+            ),
+            _c("br"),
+            _vm._v(" "),
+            post.post_name != _vm.NULL
+              ? _c("span", [
+                  _vm._v(
+                    "\n                        PostName: " +
+                      _vm._s(post.post_name) +
+                      " "
+                  ),
+                  _c("br"),
+                ])
+              : _c("span"),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "d-flex justify-content-around p-3" }, [
+            _c("span", { staticClass: "col text-start" }, [
               post.description != _vm.NULL
-                ? _c("p", [
+                ? _c("p", { staticClass: "text-start" }, [
                     _vm._v(
                       "\n                            Description: " +
                         _vm._s(post.description) +
@@ -37670,29 +37681,40 @@ var render = function () {
                     ),
                   ])
                 : _c("p"),
-              _vm._v(" "),
-              _c("img", {
-                staticClass: "img-fluid",
-                attrs: { src: post.immagine + _vm.rndNumber(), alt: "" },
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "info" }, [
-                _c("span", [
-                  _vm._v("Pubblicato: " + _vm._s(post.time_of_pubblication)),
-                ]),
-                _vm._v(" -- "),
-                _c("span", [_vm._v(" Views: " + _vm._s(post.views))]),
-                _vm._v(" -- "),
-                _c("span", [_vm._v(" Like: " + _vm._s(post.like))]),
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "col" }, [
+              _c("div", [
+                _c("img", {
+                  staticClass: "img-fluid",
+                  attrs: { src: post.immagine + _vm.rndNumber(), alt: "" },
+                }),
               ]),
               _vm._v(" "),
-              _c("hr"),
-            ])
-          }),
-          0
-        ),
-      ]),
-    ]),
+              _c("div", { staticClass: "info" }),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "d-flex justify-content-around" }, [
+            _c("span", [
+              _vm._v("Pubblicato: " + _vm._s(post.time_of_pubblication)),
+            ]),
+            _vm._v(" "),
+            _c("span", [
+              _vm._v(
+                " Views: " +
+                  _vm._s(post.views) +
+                  " - Like: " +
+                  _vm._s(post.like)
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "spacing" }),
+        ])
+      }),
+      0
+    ),
   ])
 }
 var staticRenderFns = []

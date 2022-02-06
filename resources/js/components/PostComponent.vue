@@ -1,33 +1,42 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card text-dark" >
-                   
-                       <div v-for="post, i in posts" :key="i">
-                            Ninname: {{post.owner}} <br>
-                            <span v-if="post.post_name != NULL">
-                                PostName: {{post.post_name}} <br>
-                            </span>
-                            <span v-else>
-
-                            </span>
-                            
-                            <p v-if="post.description != NULL">
+        <div class="card text-dark p-5" >
+                <div v-for="post, i in posts" :key="i">
+                    <!-- blocco nome - nome post  -->
+                    <div class="d-flex justify-content-around">
+                        Nickame: {{post.owner}} <br>
+                        <span v-if="post.post_name != NULL">
+                            PostName: {{post.post_name}} <br>
+                        </span>
+                        <span v-else><!-- nome del post non presente --></span>
+                    </div>
+                    <!-- testo e immagine -->
+                    <div class="d-flex justify-content-around p-3">
+                        <!-- testo -->
+                        <span class="col text-start">
+                            <p v-if="post.description != NULL" class="text-start">
                                 Description: {{post.description}}
                             </p>
-                            <p v-else>
-                                
-                            </p>
-                            <img class="img-fluid" :src="post.immagine + rndNumber()" alt="">
+                            <p v-else><!-- testo assente --></p>
+                            
+                        </span>
+                        <span class="col">
+                            <!-- immagine -->
+                            <div>
+                                <img class="img-fluid" :src="post.immagine + rndNumber()" alt="">
+                            </div>            
                             <div class="info">
-                                <span>Pubblicato: {{post.time_of_pubblication}}</span> -- <span> Views: {{post.views}}</span> -- <span> Like: {{post.like}}</span>
-                            </div>
-                            <hr>
-                       </div>
-                   
+                            
+                        </div>
+                        </span>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <span>Pubblicato: {{post.time_of_pubblication}}</span>
+                        <span> Views: {{post.views}} - Like: {{post.like}}</span>
+                    </div>
+                    <div class="spacing"><!-- barra di separazione --></div>
                 </div>
-            </div>
+            
         </div>
     </div>
 </template>
