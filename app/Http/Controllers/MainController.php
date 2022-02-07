@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
 class MainController extends Controller
 {
     public function home()
@@ -17,7 +19,7 @@ class MainController extends Controller
 
     public function get_post()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('time_of_pubblication', 'desc') -> get();
         return json_encode($posts);
     }
 
@@ -28,18 +30,14 @@ class MainController extends Controller
     public function store(Request $request) {
 
         $data = $request -> validate([
-            'owner' => 'required|string',
-            'post_name' => 'string',
+            'post_name' => 'nullable|string',
             'time_of_pubblication' => 'date',
-            'description' => 'string',
-            'views' => 'numeric',
-            'like' => 'numeric',
+            'description' => 'nullable|string',
             'immagine' => 'string',
         ]);
-
+        $data['owner'] = Auth::user() -> name;
         $post = Post::create($data);
 
-        // return redirect() -> route('home');
         return redirect() -> route('post');
     }
 }

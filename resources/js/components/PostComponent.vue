@@ -52,7 +52,7 @@
             .then(result => {
                 const data = result.data;
                 this.posts = data;
-                console.log(data);
+                // console.log(data);
             }).catch(err => {
                 console.error(err);
             });

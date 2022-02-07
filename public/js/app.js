@@ -1994,8 +1994,7 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get('/posts/list').then(function (result) {
       var data = result.data;
-      _this.posts = data;
-      console.log(data);
+      _this.posts = data; // console.log(data);
     })["catch"](function (err) {
       console.error(err);
     });
