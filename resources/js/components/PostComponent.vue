@@ -36,7 +36,6 @@
                     </div>
                     <div class="spacing"><!-- barra di separazione --></div>
                 </div>
-            
         </div>
     </div>
 </template>

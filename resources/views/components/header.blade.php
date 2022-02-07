@@ -6,6 +6,7 @@
         @auth
             <h1 class="text-warning">{{Auth::user() -> name}}</h1>
             <a class="btn btn-primary" href="{{route('logout')}}">Logout</a>
+            <a class="btn btn-secondary" href="{{route('create')}}">+</a>
         @endauth
     </div>
 </header>
