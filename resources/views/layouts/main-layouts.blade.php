@@ -13,7 +13,7 @@
 </head>
 <body>
     @include('components.header')
-    <div id="app" class="text-center text-light bg-dark">
+    <div id="app">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>

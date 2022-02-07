@@ -1,12 +1,16 @@
 @extends('layouts.main-layouts')
 @section('content')
     @auth
-       Welcome back
+        <div class="text-center text-light bg-dark">
+            Welcome back
+        </div>
     @else
-        <h1> Join with us </h1>
+        <div class="text-center text-light bg-dark">
+            <h1> Join with us </h1>
+        </div>
     @endauth
     @guest
-        <div class="d-flex justify-content-around border p-5">
+        <div class="text-center text-light bg-dark d-flex justify-content-around border p-5">
             {{-- registrazione --}}
             <div>
                 <h1> Register: </h1>
