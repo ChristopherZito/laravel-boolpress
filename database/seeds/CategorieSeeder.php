@@ -11,6 +11,6 @@ class CategorieSeeder extends Seeder
      */
     public function run()
     {
-        factory(Categorie::class, 10) -> create();
+        factory(Categorie::class, 50) -> create();
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Categorie;
 use App\Post;
 class PostSeeder extends Seeder
 {
@@ -11,6 +12,11 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        factory(Post::class, 50) -> create();
+        factory(Post::class, 50) -> make() -> each(function ($post)
+        {
+            $categorie = Categorie::inRandomOrder() -> limit(1) -> first();
+            $post -> cotegorie() -> associate($categorie);
+            $post -> save();
+        });
     }
 }

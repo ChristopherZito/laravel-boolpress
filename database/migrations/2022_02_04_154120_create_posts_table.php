@@ -24,6 +24,8 @@ class CreatePostsTable extends Migration
             $table -> integer('like') -> default(0) ->unsigned();
             $table -> string('immagine');
 
+            $table -> bigInteger('categorie_id') -> unsigned();
+
             $table -> timestamps();
         });
     }

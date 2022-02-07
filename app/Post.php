@@ -17,4 +17,9 @@ class Post extends Model
         'immagine',
 
     ];
+
+    public function cotegorie()
+    {
+        return $this->belongsTo(Categorie::class);
+    }
 }
