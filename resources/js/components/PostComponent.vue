@@ -30,11 +30,13 @@
                     <div class="d-flex justify-content-around">
                         <span>Pubblicato: {{post.time_of_pubblication}}</span>
                         <!-- collegamento con le categorie -->
-                        <span  v-for="categoria, i in category" :key="i">
-                            <span v-if=" post.categorie_id == categoria.id">
-                                Category:  {{categoria.Title}}
-                            </span>
+                        <span>
+                            post: {{post.categorie_id}}
+                            category: <span v-for="categoria,i in category" :key="i">
+                                {{catAssoc(categoria.id,post.categorie_id,categoria.Title)}}
+                                </span> 
                         </span>
+                           
                         <span> Views: {{post.views}} - Like: {{post.like}}</span>
                     </div>
                     <div class="spacing"><!-- barra di separazione --></div>
@@ -56,7 +58,7 @@
             .then(result => {
                 const data = result.data;
                 this.posts = data;
-                console.log("Post: ",data);
+                // console.log("Post: ",data);
             }).catch(err => {
                 console.error(err);
             });
@@ -65,7 +67,7 @@
             .then(result => {
                 const data = result.data;
                 this.category = data;
-                console.log("Category: ",data);
+                // console.log("Category: ",data);
             }).catch(err => {
                 console.error(err);
             });
@@ -76,7 +78,18 @@
                     let num = Math.round(Math.random() * 1000);
                     return num;
                 }
+            },
+            catAssoc(catId, postID,catTitle){
+                
+                    
+                    if(catId == postID){
+                        console.log("cat",catId ,"post", postID,"title:", catTitle);
+                        return  catTitle;
+                    }
+
+                
             }
+
         },
     }
 </script>

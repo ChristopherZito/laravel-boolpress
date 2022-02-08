@@ -1986,6 +1986,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1998,15 +2000,13 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get('/posts/list').then(function (result) {
       var data = result.data;
-      _this.posts = data;
-      console.log("Post: ", data);
+      _this.posts = data; // console.log("Post: ",data);
     })["catch"](function (err) {
       console.error(err);
     });
     axios.get('/posts/category').then(function (result) {
       var data = result.data;
-      _this.category = data;
-      console.log("Category: ", data);
+      _this.category = data; // console.log("Category: ",data);
     })["catch"](function (err) {
       console.error(err);
     });
@@ -2016,6 +2016,12 @@ __webpack_require__.r(__webpack_exports__);
       for (var n = 0; n < this.posts.length; n++) {
         var num = Math.round(Math.random() * 1000);
         return num;
+      }
+    },
+    catAssoc: function catAssoc(catId, postID, catTitle) {
+      if (catId == postID) {
+        console.log("cat", catId, "post", postID, "title:", catTitle);
+        return catTitle;
       }
     }
   }
@@ -37705,39 +37711,47 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "d-flex justify-content-around" },
-            [
-              _c("span", [
-                _vm._v("Pubblicato: " + _vm._s(post.time_of_pubblication)),
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.category, function (categoria, i) {
-                return _c("span", { key: i }, [
-                  post.categorie_id == categoria.id
-                    ? _c("span", [
-                        _vm._v(
-                          "\n                            Category:  " +
-                            _vm._s(categoria.Title) +
-                            "\n                        "
-                        ),
-                      ])
-                    : _vm._e(),
-                ])
-              }),
-              _vm._v(" "),
-              _c("span", [
+          _c("div", { staticClass: "d-flex justify-content-around" }, [
+            _c("span", [
+              _vm._v("Pubblicato: " + _vm._s(post.time_of_pubblication)),
+            ]),
+            _vm._v(" "),
+            _c(
+              "span",
+              [
                 _vm._v(
-                  " Views: " +
-                    _vm._s(post.views) +
-                    " - Like: " +
-                    _vm._s(post.like)
+                  "\n                        post: " +
+                    _vm._s(post.categorie_id) +
+                    "\n                        category: "
                 ),
-              ]),
-            ],
-            2
-          ),
+                _vm._l(_vm.category, function (categoria, i) {
+                  return _c("span", { key: i }, [
+                    _vm._v(
+                      "\n                            " +
+                        _vm._s(
+                          _vm.catAssoc(
+                            categoria.id,
+                            post.categorie_id,
+                            categoria.Title
+                          )
+                        ) +
+                        "\n                            "
+                    ),
+                  ])
+                }),
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c("span", [
+              _vm._v(
+                " Views: " +
+                  _vm._s(post.views) +
+                  " - Like: " +
+                  _vm._s(post.like)
+              ),
+            ]),
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "spacing" }),
         ])
