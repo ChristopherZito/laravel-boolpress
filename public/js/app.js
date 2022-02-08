@@ -1983,10 +1983,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      posts: []
+      posts: [],
+      category: []
     };
   },
   mounted: function mounted() {
@@ -1994,7 +1998,15 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get('/posts/list').then(function (result) {
       var data = result.data;
-      _this.posts = data; // console.log(data);
+      _this.posts = data;
+      console.log("Post: ", data);
+    })["catch"](function (err) {
+      console.error(err);
+    });
+    axios.get('/posts/category').then(function (result) {
+      var data = result.data;
+      _this.category = data;
+      console.log("Category: ", data);
     })["catch"](function (err) {
       console.error(err);
     });
@@ -37656,7 +37668,7 @@ var render = function () {
             ),
             _c("br"),
             _vm._v(" "),
-            post.post_name != _vm.NULL
+            post.post_name
               ? _c("span", [
                   _vm._v(
                     "\n                        PostName: " +
@@ -37665,12 +37677,12 @@ var render = function () {
                   ),
                   _c("br"),
                 ])
-              : _c("span"),
+              : _vm._e(),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "d-flex justify-content-around p-3" }, [
             _c("span", { staticClass: "col text-start" }, [
-              post.description != _vm.NULL
+              post.description
                 ? _c("p", { staticClass: "text-start" }, [
                     _vm._v(
                       "\n                            Description: " +
@@ -37678,7 +37690,7 @@ var render = function () {
                         "\n                        "
                     ),
                   ])
-                : _c("p"),
+                : _vm._e(),
             ]),
             _vm._v(" "),
             _c("span", { staticClass: "col" }, [
@@ -37693,20 +37705,39 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "d-flex justify-content-around" }, [
-            _c("span", [
-              _vm._v("Pubblicato: " + _vm._s(post.time_of_pubblication)),
-            ]),
-            _vm._v(" "),
-            _c("span", [
-              _vm._v(
-                " Views: " +
-                  _vm._s(post.views) +
-                  " - Like: " +
-                  _vm._s(post.like)
-              ),
-            ]),
-          ]),
+          _c(
+            "div",
+            { staticClass: "d-flex justify-content-around" },
+            [
+              _c("span", [
+                _vm._v("Pubblicato: " + _vm._s(post.time_of_pubblication)),
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.category, function (categoria, i) {
+                return _c("span", { key: i }, [
+                  post.categorie_id == categoria.id
+                    ? _c("span", [
+                        _vm._v(
+                          "\n                            Category:  " +
+                            _vm._s(categoria.Title) +
+                            "\n                        "
+                        ),
+                      ])
+                    : _vm._e(),
+                ])
+              }),
+              _vm._v(" "),
+              _c("span", [
+                _vm._v(
+                  " Views: " +
+                    _vm._s(post.views) +
+                    " - Like: " +
+                    _vm._s(post.like)
+                ),
+              ]),
+            ],
+            2
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "spacing" }),
         ])

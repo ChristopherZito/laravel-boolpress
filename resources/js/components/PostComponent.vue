@@ -5,20 +5,17 @@
                     <!-- blocco nome - nome post  -->
                     <div class="d-flex justify-content-around">
                         Nickame: {{post.owner}} <br>
-                        <span v-if="post.post_name != NULL">
+                        <span v-if="post.post_name">
                             PostName: {{post.post_name}} <br>
                         </span>
-                        <span v-else><!-- nome del post non presente --></span>
                     </div>
                     <!-- testo e immagine -->
                     <div class="d-flex justify-content-around p-3">
                         <!-- testo -->
                         <span class="col text-start">
-                            <p v-if="post.description != NULL" class="text-start">
+                            <p v-if="post.description" class="text-start">
                                 Description: {{post.description}}
-                            </p>
-                            <p v-else><!-- testo assente --></p>
-                            
+                            </p>                            
                         </span>
                         <span class="col">
                             <!-- immagine -->
@@ -32,6 +29,12 @@
                     </div>
                     <div class="d-flex justify-content-around">
                         <span>Pubblicato: {{post.time_of_pubblication}}</span>
+                        <!-- collegamento con le categorie -->
+                        <span  v-for="categoria, i in category" :key="i">
+                            <span v-if=" post.categorie_id == categoria.id">
+                                Category:  {{categoria.Title}}
+                            </span>
+                        </span>
                         <span> Views: {{post.views}} - Like: {{post.like}}</span>
                     </div>
                     <div class="spacing"><!-- barra di separazione --></div>
@@ -45,6 +48,7 @@
         data(){
             return {
                 posts: [],
+                category:[],
             };
         },
         mounted() {
@@ -52,7 +56,16 @@
             .then(result => {
                 const data = result.data;
                 this.posts = data;
-                // console.log(data);
+                console.log("Post: ",data);
+            }).catch(err => {
+                console.error(err);
+            });
+
+            axios.get('/posts/category')
+            .then(result => {
+                const data = result.data;
+                this.category = data;
+                console.log("Category: ",data);
             }).catch(err => {
                 console.error(err);
             });

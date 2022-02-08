@@ -20,6 +20,7 @@ Route::get('/logout', 'Auth\LoginController@logout') -> name('logout');
 
 //axios
 Route::get('/posts/list', 'MainController@get_post');
+Route::get('/posts/category', 'MainController@get_category');
 
 //create new element
 Route::get('/posts/create', 'HomeController@create') -> name('create');
