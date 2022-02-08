@@ -2,11 +2,11 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
+use App\Reaction;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(Reaction::class, function (Faker $faker) {
     return [
-        //
+        'nome' =>$faker -> word(),
     ];
 });
