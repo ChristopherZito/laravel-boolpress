@@ -15,10 +15,11 @@ class Post extends Model
         'views',
         'like',
         'immagine',
+        'category_id',
 
     ];
 
-    public function cotegorie()
+    public function categorie()
     {
         return $this->belongsTo(Categorie::class);
     }
