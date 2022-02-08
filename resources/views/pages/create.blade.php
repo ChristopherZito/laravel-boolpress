@@ -2,7 +2,6 @@
 @section('content')
     @auth
     <div class="container text-center">
-
         <a class="btn btn-secondary" href="{{route('post')}}">To posts</a>
         <h2>Create new Post</h2> 
         <form  action="{{route('store')}}" method="POST">

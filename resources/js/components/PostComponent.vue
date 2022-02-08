@@ -15,7 +15,10 @@
                         <span class="col text-start">
                             <p v-if="post.description" class="text-start">
                                 Description: {{post.description}}
-                            </p>                            
+                            </p> 
+                            <p>
+                                Reaction:
+                            </p>                           
                         </span>
                         <span class="col">
                             <!-- immagine -->
@@ -50,6 +53,7 @@
             return {
                 posts: [],
                 category:[],
+                reaction:[],
             };
         },
         mounted() {
@@ -70,7 +74,17 @@
             }).catch(err => {
                 console.error(err);
             });
+
+            axios.get('/posts/reaction')
+            .then(result => {
+                const data = result.data;
+                this.reaction = data;
+                console.log("reaction: ",data);
+            }).catch(err => {
+                console.error(err);
+            });
         },
+        
         methods:{
             rndNumber(){
                 for(let n=0;n<this.posts.length;n++){
@@ -83,6 +97,9 @@
                     /* console.log("cat",catId ,"post", postID,"title:", catTitle); */
                     return  catTitle;
                 }  
+            },
+            reacAssoc(){
+
             }
 
         },
