@@ -1987,7 +1987,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2020,7 +2019,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     catAssoc: function catAssoc(catId, postID, catTitle) {
       if (catId == postID) {
-        console.log("cat", catId, "post", postID, "title:", catTitle);
+        /* console.log("cat",catId ,"post", postID,"title:", catTitle); */
         return catTitle;
       }
     }
@@ -37719,11 +37718,7 @@ var render = function () {
             _c(
               "span",
               [
-                _vm._v(
-                  "\n                        post: " +
-                    _vm._s(post.categorie_id) +
-                    "\n                        category: "
-                ),
+                _vm._v("\n                        Category: "),
                 _vm._l(_vm.category, function (categoria, i) {
                   return _c("span", { key: i }, [
                     _vm._v(

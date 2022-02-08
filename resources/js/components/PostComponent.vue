@@ -31,12 +31,11 @@
                         <span>Pubblicato: {{post.time_of_pubblication}}</span>
                         <!-- collegamento con le categorie -->
                         <span>
-                            post: {{post.categorie_id}}
-                            category: <span v-for="categoria,i in category" :key="i">
+                            <!-- post: {{post.categorie_id}} -->
+                            Category: <span v-for="categoria,i in category" :key="i">
                                 {{catAssoc(categoria.id,post.categorie_id,categoria.Title)}}
                                 </span> 
                         </span>
-                           
                         <span> Views: {{post.views}} - Like: {{post.like}}</span>
                     </div>
                     <div class="spacing"><!-- barra di separazione --></div>
@@ -80,14 +79,10 @@
                 }
             },
             catAssoc(catId, postID,catTitle){
-                
-                    
-                    if(catId == postID){
-                        console.log("cat",catId ,"post", postID,"title:", catTitle);
-                        return  catTitle;
-                    }
-
-                
+                if(catId == postID){
+                    /* console.log("cat",catId ,"post", postID,"title:", catTitle); */
+                    return  catTitle;
+                }  
             }
 
         },
