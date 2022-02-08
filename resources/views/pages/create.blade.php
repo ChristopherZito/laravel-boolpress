@@ -17,11 +17,15 @@
             <input type="datetime-local" name="time_of_pubblication"><br>
             
             <label for="description">Description</label><br>
-            <input type="text" name="description" placeholder="Description"><br>
+            <textarea name="description"cols="20" rows="10"></textarea><br>
+            
+            <select class="m-3" name="category">
+                @foreach ($category as $categoria)
+                    <option value="{{$categoria -> id}}">{{$categoria -> Title}}</option>
+                @endforeach
+            </select>
+            <br>
 
-            <label for="immagine" >Immagine</label><br>
-            <input type="text"  name="immagine" value="https://unsplash.it/300/300?image="><br>
-        
             <input type="submit" value="Create">
         </form>
     </div>

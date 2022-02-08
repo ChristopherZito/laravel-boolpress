@@ -15,7 +15,6 @@ class Post extends Model
         'views',
         'like',
         'immagine',
-        'category_id',
 
     ];
 

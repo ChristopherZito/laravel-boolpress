@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
             $table -> text('description') -> nullable();
             $table -> integer('views') -> default(0) ->unsigned();
             $table -> integer('like') -> default(0) ->unsigned();
-            $table -> string('immagine');
+            $table -> string('immagine')-> default('https://unsplash.it/300/300?image=');
 
             $table -> bigInteger('categorie_id') -> unsigned();
 

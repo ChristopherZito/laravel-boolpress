@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -23,21 +24,5 @@ class MainController extends Controller
         return json_encode($posts);
     }
 
-    public function create()
-    {
-        return view('pages.create');
-    }
-    public function store(Request $request) {
-
-        $data = $request -> validate([
-            'post_name' => 'nullable|string',
-            'time_of_pubblication' => 'date',
-            'description' => 'nullable|string',
-            'immagine' => 'string',
-        ]);
-        $data['owner'] = Auth::user() -> name;
-        $post = Post::create($data);
-
-        return redirect() -> route('post');
-    }
+    
 }

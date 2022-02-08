@@ -22,5 +22,5 @@ Route::get('/logout', 'Auth\LoginController@logout') -> name('logout');
 Route::get('/posts/list', 'MainController@get_post');
 
 //create new element
-Route::get('/posts/create', 'MainController@create') -> name('create');
-Route::post('/posts/store', 'MainController@store') -> name('store');
+Route::get('/posts/create', 'HomeController@create') -> name('create');
+Route::post('/posts/store', 'HomeController@store') -> name('store');
