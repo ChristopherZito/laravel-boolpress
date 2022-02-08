@@ -24,6 +24,11 @@
                     <option value="{{$categoria -> id}}">{{$categoria -> Title}}</option>
                 @endforeach
             </select>
+            
+            <h3>Reactions</h3>
+            @foreach ($reactions as $reaction)
+            <input type="checkbox" name="reactions[]" value="{{$reaction -> id}}"> {{$reaction -> nome}}<br>
+            @endforeach
             <br>
 
             <input type="submit" value="Create">
