@@ -1,9 +1,6 @@
 @extends('layouts.main-layouts')
 @section('content')
     @auth
-        {{-- @foreach ($reactions as $reaction)
-            {{$reaction -> reactions }} <br>
-        @endforeach --}}
         <div class="container">
             <div class="card text-dark p-5" >
                 @foreach ($posts as $post)

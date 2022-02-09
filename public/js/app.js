@@ -1990,6 +1990,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2001,25 +2005,26 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('/posts/list').then(function (result) {
-      var data = result.data;
-      _this.posts = data; // console.log("Post: ",data);
-    })["catch"](function (err) {
-      console.error(err);
-    });
     axios.get('/posts/category').then(function (result) {
-      var data = result.data;
-      _this.category = data; // console.log("Category: ",data);
+      var catdata = result.data;
+      _this.category = catdata; // console.log("Category: ",data);
+
+      axios.get('/posts/list').then(function (result) {
+        var resdata = result.data;
+        _this.posts = resdata; // console.log("Post: ",resdata);
+      })["catch"](function (err) {
+        console.error(err);
+      });
     })["catch"](function (err) {
       console.error(err);
-    });
-    axios.get('/posts/reaction').then(function (result) {
-      var data = result.data;
-      _this.reaction = data;
-      console.log("reaction: ", data);
-    })["catch"](function (err) {
-      console.error(err);
-    });
+    }); // axios.get('/posts/reaction')
+    // .then(result => {
+    //     const data = result.data;
+    //     this.reaction = data;
+    //     console.log("reaction: ",data);
+    // }).catch(err => {
+    //     console.error(err);
+    // });
   },
   methods: {
     rndNumber: function rndNumber() {
@@ -2033,8 +2038,7 @@ __webpack_require__.r(__webpack_exports__);
         /* console.log("cat",catId ,"post", postID,"title:", catTitle); */
         return catTitle;
       }
-    },
-    reacAssoc: function reacAssoc() {}
+    }
   }
 });
 
@@ -37766,6 +37770,8 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
+          _vm._m(0, true),
+          _vm._v(" "),
           _c("div", { staticClass: "spacing" }),
         ])
       }),
@@ -37773,7 +37779,22 @@ var render = function () {
     ),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "my-5" }, [
+      _c("a", { staticClass: "btn btn-secondary", attrs: { href: "#" } }, [
+        _vm._v("EDIT"),
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "btn btn-danger", attrs: { href: "#" } }, [
+        _vm._v("DELETE"),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 

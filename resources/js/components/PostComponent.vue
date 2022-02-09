@@ -41,6 +41,10 @@
                         </span>
                         <span> Views: {{post.views}} - Like: {{post.like}}</span>
                     </div>
+                    <div class="my-5">
+                            <a class="btn btn-secondary" href="#">EDIT</a> 
+                            <a class="btn btn-danger" href="#">DELETE</a>
+                        </div>
                     <div class="spacing"><!-- barra di separazione --></div>
                 </div>
         </div>
@@ -57,32 +61,34 @@
             };
         },
         mounted() {
-            axios.get('/posts/list')
-            .then(result => {
-                const data = result.data;
-                this.posts = data;
-                // console.log("Post: ",data);
-            }).catch(err => {
-                console.error(err);
-            });
+            
 
             axios.get('/posts/category')
             .then(result => {
-                const data = result.data;
-                this.category = data;
+                const catdata = result.data;
+                this.category = catdata;
                 // console.log("Category: ",data);
+
+                    axios.get('/posts/list')
+                        .then(result => {
+                            const resdata = result.data;
+                            this.posts = resdata;
+                            // console.log("Post: ",resdata);
+                        }).catch(err => {
+                            console.error(err);
+                        });
             }).catch(err => {
                 console.error(err);
             });
 
-            axios.get('/posts/reaction')
-            .then(result => {
-                const data = result.data;
-                this.reaction = data;
-                console.log("reaction: ",data);
-            }).catch(err => {
-                console.error(err);
-            });
+            // axios.get('/posts/reaction')
+            // .then(result => {
+            //     const data = result.data;
+            //     this.reaction = data;
+            //     console.log("reaction: ",data);
+            // }).catch(err => {
+            //     console.error(err);
+            // });
         },
         
         methods:{
@@ -98,10 +104,6 @@
                     return  catTitle;
                 }  
             },
-            reacAssoc(){
-
-            }
-
         },
     }
 </script>

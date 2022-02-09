@@ -23,18 +23,22 @@ class MainController extends Controller
         return view('pages.post',compact('posts','category','reactions'));
     }
 
-    // public function get_post(){
-    //     $posts = Post::orderBy('time_of_pubblication', 'desc') -> get();
-    //     return json_encode($posts);
-    // }
+    public function vue_page(){
+        return view('pages.vue');
+    }
 
-    // public function get_category(){
-    //     $category = Categorie::all();
-    //     return json_encode($category);
-    // }
-    // public function get_reaction(){
-    //     $reaction = Reaction::all();
-    //     return json_encode($reaction);
-    // }
+    public function get_post(){
+        $posts = Post::orderBy('time_of_pubblication', 'desc') -> get();
+        return json_encode($posts);
+    }
+
+    public function get_category(){
+        $category = Categorie::all();
+        return json_encode($category);
+    }
+    public function get_reaction(){
+        $reaction = Reaction::all();
+        return json_encode($reaction);
+    }
 
 }
