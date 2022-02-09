@@ -17,6 +17,12 @@ Route::post('/login', 'Auth\LoginController@login') -> name('login');
 Route::post('/register', 'Auth\RegisterController@register') -> name('register');
 Route::get('/logout', 'Auth\LoginController@logout') -> name('logout');
 
+//edit
+Route::get('/logged/post/edit/{id}', 'HomeController@edit') -> name('edit');
+Route::post('/logged/post/update/{id}', 'HomeController@update') -> name('update');
+
+//delete
+Route::get('/logged/post/delete/{id}', 'HomeController@delete') -> name('delete');
 
 //axios
 // Route::get('/posts/list', 'MainController@get_post');

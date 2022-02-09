@@ -43,6 +43,10 @@
                             </span>
                             <span> Views: {{$post -> views}} - Like: {{$post ->like}}</span>
                         </div>
+                        <div class="my-5">
+                            <a class="btn btn-secondary" href="{{route('edit' , $post -> id)}}">EDIT</a> 
+                            <a class="btn btn-danger" href="{{route('delete' , $post -> id)}}">DELETE</a>
+                        </div>
                         <div class="spacing"><!-- barra di separazione --></div>
                     </div>
                 @endforeach
